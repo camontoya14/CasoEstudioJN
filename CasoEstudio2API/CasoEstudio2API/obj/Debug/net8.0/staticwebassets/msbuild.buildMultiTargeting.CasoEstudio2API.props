@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CasoEstudio2API.props" />
+</Project>

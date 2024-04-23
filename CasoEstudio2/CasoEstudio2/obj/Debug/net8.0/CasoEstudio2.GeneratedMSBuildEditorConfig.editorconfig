@@ -18,16 +18,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\fidelitas\source\repos\CasoEstudioJN\CasoEstudio2\CasoEstudio2
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/fidelitas/source/repos/CasoEstudioJN/CasoEstudio2/CasoEstudio2/Views/Casas/AlquilarCasa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FzYXNcQWxxdWlsYXJDYXNhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fidelitas/source/repos/CasoEstudioJN/CasoEstudio2/CasoEstudio2/Views/Casas/ConsultarCasas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FzYXNcQ29uc3VsdGFyQ2FzYXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/fidelitas/source/repos/CasoEstudioJN/CasoEstudio2/CasoEstudio2/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/fidelitas/source/repos/CasoEstudioJN/CasoEstudio2/CasoEstudio2/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/fidelitas/source/repos/CasoEstudioJN/CasoEstudio2/CasoEstudio2/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/fidelitas/source/repos/CasoEstudioJN/CasoEstudio2/CasoEstudio2/Views/Shared/_ValidationScriptsPartial.cshtml]

@@ -1,0 +1,142 @@
+﻿@model List<CasoEstudio2.Entities.Casas>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top:100px;">
+            <div class="card" style="padding:20px;">
+                <div class="card-header">
+                    <h3>Encomiendas</h3>
+                </div>
+                <br />
+
+                @if (ViewBag.MsjPantalla != null)
+                {
+                    <br>
+                    <div class="alert alert-warning" role="alert" style="text-align:center">
+                        @ViewBag.MsjPantalla
+                    </div>
+                }
+
+                <div class="card-body table-responsive p-0">
+                    <table id="tabla" class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>Descripcion</th>
+                                <th>Precio</th>
+                                <th>Usuario</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+
+                                if (((double)item.PrecioCasa) >= 115000 && ((double)item.PrecioCasa) <= 180000)
+                                {
+                                    <tr>
+                                        <td>@item.DescripcionCasa</td>
+                                        <td>@item.PrecioCasa</td>
+                                        @if (item.UsuarioAlquiler.ToString() == "Null")
+                                        {
+                                            <td>N/A</td>
+                                        }
+                                        else
+                                        {
+                                            <td>@item.UsuarioAlquiler</td>
+                                        }
+
+                                        @if (item.UsuarioAlquiler != null)
+                                        {
+                                            <td>Disponible</td>
+                                        }
+                                        else
+                                        {
+                                            <td>Reservada</td>
+                                        }
+
+                                        <td>@item.FechaAlquiler</td>
+
+                                        @if (item.FechaAlquiler.ToString() == "Null")
+                                        {
+                                            <td>N/A</td>
+                                        }
+                                        else
+                                        {
+                                            <td>@item.UsuarioAlquiler</td>
+                                        }
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            var table = $('#tableData').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                },
+                "searching": false,
+                "paging": false,
+                "info": false,
+                "lengthChange": false,
+                "ordering": true,
+            });
+
+            //Función para mostrar primero los productos en estado Pendiente
+            table.order([4, 'asc']).draw();
+            table.on('draw', function () {
+                var filas = table.rows().nodes();
+                filas.sort(function (a, b) {
+                    var estadoA = $(a).find('td:eq(4)').text().toLowerCase();
+                    var estadoB = $(b).find('td:eq(4)').text().toLowerCase();
+                    return estadoA.localeCompare(estadoB);
+                });
+                $(filas).detach().appendTo(table.table().body());
+            });
+        });
+    </script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @using (Html.BeginForm("EliminarRuta", "Ruta", FormMethod.Post))
+                {
+                    <div class="modal-body">
+                        <input type="hidden" id="IdRuta" name="IdRuta" value="">
+                        <p id="Question" value="" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Procesar</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+
+

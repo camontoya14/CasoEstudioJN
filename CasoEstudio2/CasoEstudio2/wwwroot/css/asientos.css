@@ -1,0 +1,71 @@
+﻿
+CSS
+#mapa-asientos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#bus {
+    border: 3px solid #6998AB;
+    border-radius: 20px;
+    padding: 30px 0px 15px 30px;
+    width: 260px;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left:30px;
+}
+
+.col-8 {
+    margin-top:20px;
+}
+
+.fila {
+    display: flex;
+}
+
+.asientos-pares{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 2px; /* Reduce el espacio entre pares de asientos */
+}
+
+.asientos {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    margin: 5px 5px 0 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.espacio-enmedio-pares {
+    width: 15px;
+}
+
+.espacio-al-final {
+    width: 0.5px;
+}
+
+.seleccionado {
+    background-color: #27AE60;
+    color: white;
+}
+.seleccionadoEspecial {
+    background-color: #1A374D;
+    color: white;
+}
+
+.detalles {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 20px 80px 20px 80px;
+    border-bottom: 1px solid #B2BABB;
+    margin-bottom: 20px;
+}
