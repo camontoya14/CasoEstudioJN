@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "hYdtTVOd9xIMVxQEICUWg6XhZMRY7QVXmtXwNYMFgJM7HsZ6klhy08exgEG93oH0JNmrRoHF0ujivRnHWfcvsA==",
+  "dgSpecHash": "KCIBmjky+SZKVfxi5OpzU6sYQnz8evnDQja7S0dOkxtRM1cj5UTidzqtdSJsYP8KsNI0RFlmqwqYt5WqSxKTKw==",
   "success": true,
   "projectFilePath": "C:\\Users\\fidelitas\\source\\repos\\CasoEstudioJN\\CasoEstudio2API\\CasoEstudio2API\\CasoEstudio2API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fidelitas\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\fidelitas\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\fidelitas\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
+    "C:\\Users\\fidelitas\\.nuget\\packages\\microsoft.aspnet.cors\\5.3.0\\microsoft.aspnet.cors.5.3.0.nupkg.sha512",
     "C:\\Users\\fidelitas\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.4\\microsoft.aspnetcore.authentication.jwtbearer.8.0.4.nupkg.sha512",
     "C:\\Users\\fidelitas\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\fidelitas\\.nuget\\packages\\microsoft.data.sqlclient\\5.2.0\\microsoft.data.sqlclient.5.2.0.nupkg.sha512",
@@ -50,5 +51,16 @@
     "C:\\Users\\fidelitas\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
     "C:\\Users\\fidelitas\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.Cors 5.3.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.Cors",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

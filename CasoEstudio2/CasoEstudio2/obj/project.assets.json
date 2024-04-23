@@ -1,11 +1,43 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "Vse.Web.Serialization.ControlledSerializationJsonConverter/1.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Vse.Web.Serialization.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net45/Vse.Web.Serialization.dll": {
+            "related": ".pdb"
+          }
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Vse.Web.Serialization.ControlledSerializationJsonConverter/1.0.4": {
+      "sha512": "d1ZGds/VSN028I9xA8illzAH60ra08Rfxk9e4vuJZX+etAvQjyCY9z2iEdN4J9UD6nSdmaI9FNN+nJ1UNKI8Uw==",
+      "type": "package",
+      "path": "vse.web.serialization.controlledserializationjsonconverter/1.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Vse.Web.Serialization.dll",
+        "lib/net40/Vse.Web.Serialization.pdb",
+        "lib/net45/Vse.Web.Serialization.dll",
+        "lib/net45/Vse.Web.Serialization.pdb",
+        "vse.web.serialization.controlledserializationjsonconverter.1.0.4.nupkg.sha512",
+        "vse.web.serialization.controlledserializationjsonconverter.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "Vse.Web.Serialization.ControlledSerializationJsonConverter >= 1.0.4"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\fidelitas\\.nuget\\packages\\": {}
@@ -45,6 +77,12 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "Vse.Web.Serialization.ControlledSerializationJsonConverter": {
+            "target": "Package",
+            "version": "[1.0.4, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -67,5 +105,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Vse.Web.Serialization.ControlledSerializationJsonConverter 1.0.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Vse.Web.Serialization.ControlledSerializationJsonConverter",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

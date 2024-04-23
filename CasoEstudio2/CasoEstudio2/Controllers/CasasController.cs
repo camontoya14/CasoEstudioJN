@@ -22,12 +22,12 @@ namespace CasoEstudio2.Controllers
 		}
 		private void CargarCasas()
 		{
-			var lista = new List<SelectListItem> { new SelectListItem { Value = string.Empty, Text = "Seleccione..." } };
+			var lista = new List<SelectListItem> { new SelectListItem { Value = string.Empty, Text = "Seleccione..."  } };
 
 			foreach (var item in _casasModel.ConsultarCasas()?.Datos!)
 				lista.Add(new SelectListItem { Value = item.IdCasa.ToString(), Text = item.DescripcionCasa });
 
-			ViewBag.Rutas = lista;
+			ViewBag.Casas = lista;
 		}
 
 		[HttpGet]

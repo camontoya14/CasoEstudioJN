@@ -1,5 +1,5 @@
-﻿@model CasoEstudio2.Entities.Casas
-
+﻿@using System.Text.Json;
+@model CasoEstudio2.Entities.Casas
 @{
     ViewBag.Title = "AlquilarCasas";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,8 +22,8 @@
 
                 @Html.HiddenFor(m => m.IdCasa)
                 <div class="form-group">
-                    <label for="Test">IdCasa</label>
-                    @Html.DropDownListFor(m => m.DescripcionCasa, ViewBag.DescripcionCasas as List<SelectListItem>, new { @id = "DescripcionCasa", @class = "form-control form-control-lg", @type = "text", @placeholder = "DescripcionCasa" })
+                    <label for="Test">Casa</label>
+                    @Html.DropDownListFor(m => m.DescripcionCasa, ViewBag.Casas as List<SelectListItem>, new { @id = "DescripcionCasa", @class = "form-control form-control-lg", @type = "text", @placeholder = "DescripcionCasa", @required = "true" })
 
                 </div>
 
@@ -44,18 +44,57 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-	document.addEventListener("DOMContentLoaded", function () {
-		// Asigna el evento change al dropdown de rutas y el evento input al campo de peso
-        document.getElementById('DescripcionCasa').addEventListener('change', cambiarObjetos);
+    document.addEventListener("DOMContentLoaded", function () {
+        // Attach a change event listener to the DescripcionCasa dropdown
+        document.getElementById('DescripcionCasa').addEventListener('change', function () {
+            handleDescripcionCasaChange();
+        });
 
-        function cambiarObjetos() {
-            var casa = document.getElementById('DescripcionCasa').value;
-            var precioCasa = ViewBag.PrecioCasa;
+        function handleDescripcionCasaChange() {
+            // Get the selected value (IdCasa) from the DescripcionCasa dropdown
+            var idCasa = document.getElementById('DescripcionCasa').value;
+
+            // Create a new XMLHttpRequest object
+            var xhr = new XMLHttpRequest();
+
+            // Configure the request with the API endpoint and the selected IdCasa
+            xhr.open('GET', `https://localhost:7033/api/Casas/ConsultarCasa?IdCasa=${encodeURIComponent(idCasa)}`, true);
+
+            // Set up the onload event handler to process the response
+            xhr.onload = function () {
+                // Check if the request was successful
+                if (xhr.status === 200) {
+                    // Parse the JSON response
+                    var data = JSON.parse(xhr.responseText);
+
+                    // Extract the price from the response
+                    var precioCasa = data.dato ? data.dato.precioCasa : null;
+
+                    // Check if precioCasa is not null and update the PrecioCasa textbox
+                    if (precioCasa !== null) {
+                        document.getElementById('PrecioCasa').value = precioCasa;
+                    }
+                } else {
+                    // Handle errors
+                    console.error('Error fetching casa price:', xhr.statusText);
+                    alert('There was an error fetching the price. Please try again.');
+                }
+            };
+
+            // Set up an error handler
+            xhr.onerror = function () {
+                console.error('Error fetching casa price:', xhr.statusText);
+                alert('There was an error fetching the price. Please try again.');
+            };
+
+            // Send the request
+            xhr.send();
+        }
+    });
 
 
-			var montoTotal = peso * montoPorKilo;
-            document.getElementById('PrecioCasa').value = montoTotal.toFixed(2);
-		}
-	});
+
+
+
 </script>
 

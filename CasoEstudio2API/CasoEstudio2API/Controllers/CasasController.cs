@@ -62,5 +62,31 @@ namespace CasoEstudio2API.Controllers
                 return Ok(respuesta);
             }
         }
+        [AllowAnonymous]
+        [Route("ConsultarCasa")]
+        [HttpGet]
+        public IActionResult ConsultarCasa(long IdCasa)
+        {
+            using (var db = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+            {
+                CasasRespuesta respuesta = new CasasRespuesta();
+
+                var result = db.Query<Casas>("ConsultarCasa",
+                    new { IdCasa },
+                    commandType: CommandType.StoredProcedure).FirstOrDefault();
+
+                if (result == null)
+                {
+                    respuesta.Codigo = "-1";
+                    respuesta.Mensaje = "No hay rutas registrados.";
+                }
+                else
+                {
+                    respuesta.Dato = result;
+                }
+
+                return Ok(respuesta);
+            }
+        }
     }
 }

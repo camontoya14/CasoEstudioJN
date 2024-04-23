@@ -29,3 +29,6 @@ C:\Users\fidelitas\source\repos\CasoEstudioJN\CasoEstudio2\CasoEstudio2\obj\Debu
 C:\Users\fidelitas\source\repos\CasoEstudioJN\CasoEstudio2\CasoEstudio2\obj\Debug\net8.0\CasoEstudio2.pdb
 C:\Users\fidelitas\source\repos\CasoEstudioJN\CasoEstudio2\CasoEstudio2\obj\Debug\net8.0\CasoEstudio2.genruntimeconfig.cache
 C:\Users\fidelitas\source\repos\CasoEstudioJN\CasoEstudio2\CasoEstudio2\obj\Debug\net8.0\ref\CasoEstudio2.dll
+C:\Users\fidelitas\source\repos\CasoEstudioJN\CasoEstudio2\CasoEstudio2\obj\Debug\net8.0\CasoEstudio2.csproj.AssemblyReference.cache
+C:\Users\fidelitas\source\repos\CasoEstudioJN\CasoEstudio2\CasoEstudio2\bin\Debug\net8.0\Vse.Web.Serialization.dll
+C:\Users\fidelitas\source\repos\CasoEstudioJN\CasoEstudio2\CasoEstudio2\obj\Debug\net8.0\CasoEstudio2.csproj.CopyComplete

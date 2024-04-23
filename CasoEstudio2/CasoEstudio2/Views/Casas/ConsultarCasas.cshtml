@@ -7,7 +7,7 @@
         <div class="col-12" style="margin-top:100px;">
             <div class="card" style="padding:20px;">
                 <div class="card-header">
-                    <h3>Encomiendas</h3>
+                    <h3>Casas</h3>
                 </div>
                 <br />
 
@@ -40,7 +40,7 @@
                                     <tr>
                                         <td>@item.DescripcionCasa</td>
                                         <td>@item.PrecioCasa</td>
-                                        @if (item.UsuarioAlquiler.ToString() == "Null")
+                                        @if (item.UsuarioAlquiler?.ToString() == null)
                                         {
                                             <td>N/A</td>
                                         }
@@ -49,24 +49,24 @@
                                             <td>@item.UsuarioAlquiler</td>
                                         }
 
-                                        @if (item.UsuarioAlquiler != null)
+                                        @if (item.UsuarioAlquiler?.ToString() == null)
                                         {
                                             <td>Disponible</td>
                                         }
                                         else
                                         {
-                                            <td>Reservada</td>
+                                            <td>Alquilada</td>
                                         }
 
-                                        <td>@item.FechaAlquiler</td>
+                                        
 
-                                        @if (item.FechaAlquiler.ToString() == "Null")
+                                        @if (item.FechaAlquiler == null)
                                         {
                                             <td>N/A</td>
                                         }
                                         else
                                         {
-                                            <td>@item.UsuarioAlquiler</td>
+                                            <td>@item.FechaAlquiler</td>
                                         }
                                     </tr>
                                 }
