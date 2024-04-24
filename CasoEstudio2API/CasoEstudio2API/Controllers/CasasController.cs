@@ -50,7 +50,7 @@ namespace CasoEstudio2API.Controllers
                 Respuesta respuesta = new Respuesta();
 
                 var result = db.Execute("AlquilarCasa",
-                    new { entidad.IdCasa, entidad.DescripcionCasa, entidad.PrecioCasa, entidad.UsuarioAlquiler, entidad.FechaAlquiler },
+                    new { entidad.IdCasa, entidad.PrecioCasa, entidad.UsuarioAlquiler, entidad.FechaAlquiler },
                     commandType: CommandType.StoredProcedure);
 
                 if (result <= 0)

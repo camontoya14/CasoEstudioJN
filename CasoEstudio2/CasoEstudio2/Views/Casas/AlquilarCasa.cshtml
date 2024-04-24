@@ -17,13 +17,12 @@
                 </div>
             }
 
-            @using (Html.BeginForm("AlquilarCasas", "Casas", FormMethod.Post, new { @class = "pt-3" }))
+            @using (Html.BeginForm("AlquilarCasa", "Casas", FormMethod.Post, new { @class = "pt-3" }))
             {
 
-                @Html.HiddenFor(m => m.IdCasa)
                 <div class="form-group">
                     <label for="Test">Casa</label>
-                    @Html.DropDownListFor(m => m.DescripcionCasa, ViewBag.Casas as List<SelectListItem>, new { @id = "DescripcionCasa", @class = "form-control form-control-lg", @type = "text", @placeholder = "DescripcionCasa", @required = "true" })
+                    @Html.DropDownListFor(m => m.IdCasa, ViewBag.Casas as List<SelectListItem>, new { @id = "DescripcionCasa", @class = "form-control form-control-lg", @type = "text", @placeholder = "DescripcionCasa", @required = "true" })
 
                 </div>
 
@@ -44,56 +43,45 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    $(document).ready(function () {
         // Attach a change event listener to the DescripcionCasa dropdown
-        document.getElementById('DescripcionCasa').addEventListener('change', function () {
-            handleDescripcionCasaChange();
+        $("#DescripcionCasa").change(function () {
+            // Call the function to handle the change
+            ConsultarPrecioCasa();
         });
-
-        function handleDescripcionCasaChange() {
-            // Get the selected value (IdCasa) from the DescripcionCasa dropdown
-            var idCasa = document.getElementById('DescripcionCasa').value;
-
-            // Create a new XMLHttpRequest object
-            var xhr = new XMLHttpRequest();
-
-            // Configure the request with the API endpoint and the selected IdCasa
-            xhr.open('GET', `https://localhost:7033/api/Casas/ConsultarCasa?IdCasa=${encodeURIComponent(idCasa)}`, true);
-
-            // Set up the onload event handler to process the response
-            xhr.onload = function () {
-                // Check if the request was successful
-                if (xhr.status === 200) {
-                    // Parse the JSON response
-                    var data = JSON.parse(xhr.responseText);
-
-                    // Extract the price from the response
-                    var precioCasa = data.dato ? data.dato.precioCasa : null;
-
-                    // Check if precioCasa is not null and update the PrecioCasa textbox
-                    if (precioCasa !== null) {
-                        document.getElementById('PrecioCasa').value = precioCasa;
-                    }
-                } else {
-                    // Handle errors
-                    console.error('Error fetching casa price:', xhr.statusText);
-                    alert('There was an error fetching the price. Please try again.');
-                }
-            };
-
-            // Set up an error handler
-            xhr.onerror = function () {
-                console.error('Error fetching casa price:', xhr.statusText);
-                alert('There was an error fetching the price. Please try again.');
-            };
-
-            // Send the request
-            xhr.send();
-        }
     });
 
+        function ConsultarPrecioCasa() {
+            // Get the selected IdCasa from the DescripcionCasa dropdown
+            let idCasa = $("#DescripcionCasa").val();
 
-
+            // Only proceed if an IdCasa is selected
+            if (idCasa.length > 0) {
+                // Use jQuery's ajax method to make an API call
+                $.ajax({
+                    url: `https://localhost:7033/api/Casas/ConsultarCasa?IdCasa=${idCasa}`,
+                    type: "GET",
+                    headers: {
+                        'accept': '*/*'  // Add the accept header
+                    },
+                    success: function (data) {
+                        // Check if data.dato and data.dato.precioCasa exist in the response
+                        if (data !== undefined) {
+                            // Update the PrecioCasa textbox with the retrieved precioCasa
+                            $("#PrecioCasa").val(data.dato.precioCasa);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle any errors that occurred during the request
+                        console.error('Error fetching casa price:', status, error);
+                        alert('There was an error fetching the price. Please try again.');
+                    }
+                });
+            } else {
+                // Clear the PrecioCasa textbox if no IdCasa is selected
+                $("#PrecioCasa").val("");
+            }
+        }
 
 
 </script>

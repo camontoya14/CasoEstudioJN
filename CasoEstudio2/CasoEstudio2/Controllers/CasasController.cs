@@ -40,8 +40,9 @@ namespace CasoEstudio2.Controllers
 		[HttpPost]
 		public IActionResult AlquilarCasa(Casas entidad)
 		{
-			
-			var resp = _casasModel.AlquilarCasa(entidad);
+
+            entidad.FechaAlquiler = DateTime.Now;
+            var resp = _casasModel.AlquilarCasa(entidad);
 
 			if (resp?.Codigo == "00")
 				return RedirectToAction("ConsultarCasas", "Casas");
